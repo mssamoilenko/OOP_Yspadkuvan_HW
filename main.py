@@ -80,3 +80,68 @@ print(passport.get_info())
 foreign_passport = ForeignPassport("Ivan Ivanchenko", "1990-01-01", "AB123456", "Ukrainian", "FP789012", ["USA", "Canada", "Germany"])
 print("\nForeign Passport Info:")
 print(foreign_passport.get_info())
+
+#task3
+class Animal:
+    def __init__(self, name, species, diet, habitat):
+        self.name = name
+        self.species = species
+        self.diet = diet
+        self.habitat = habitat
+
+    def get_info(self):
+        return (f"Name: {self.name}\n"
+                f"Species: {self.species}\n"
+                f"Diet: {self.diet}\n"
+                f"Habitat: {self.habitat}")
+
+class Tiger(Animal):
+    def __init__(self, name, stripe_pattern):
+        super().__init__(name, species="Tiger", diet="Carnivore", habitat="Jungle")
+        self.stripe_pattern = stripe_pattern
+
+    def get_info(self):
+        base_info = super().get_info()
+        return f"{base_info}\nStripe Pattern: {self.stripe_pattern}"
+
+    def roar(self):
+        return f"{self.name} the tiger roars loudly!"
+
+class Crocodile(Animal):
+    def __init__(self, name, length):
+        super().__init__(name, species="Crocodile", diet="Carnivore", habitat="Swamp")
+        self.length = length
+
+    def get_info(self):
+        base_info = super().get_info()
+        return f"{base_info}\nLength: {self.length} meters"
+
+    def swim(self):
+        return f"{self.name} the crocodile swims silently in the water."
+
+class Kangaroo(Animal):
+    def __init__(self, name, pouch_size):
+        super().__init__(name, species="Kangaroo", diet="Herbivore", habitat="Australian Outback")
+        self.pouch_size = pouch_size
+
+    def get_info(self):
+        base_info = super().get_info()
+        return f"{base_info}\nPouch Size: {self.pouch_size} liters"
+
+    def jump(self):
+        return f"{self.name} the kangaroo jumps high across the outback."
+
+tiger = Tiger("Shere Khan", "Bold stripes")
+print("Tiger Info:")
+print(tiger.get_info())
+print(tiger.roar())
+
+crocodile = Crocodile("Sobek", 5)
+print("\nCrocodile Info:")
+print(crocodile.get_info())
+print(crocodile.swim())
+
+kangaroo = Kangaroo("Jack", 8)
+print("\nKangaroo Info:")
+print(kangaroo.get_info())
+print(kangaroo.jump())
